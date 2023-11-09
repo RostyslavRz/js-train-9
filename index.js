@@ -378,18 +378,15 @@ function findDuplicateElements(arr) {
   if (!Array.isArray(arr)) {
     return [];
   } // Перевіряємо, чи вхідний параметр є масивом, якщо ні, повертаємо пустий масив
-  let result = [];
-  arr.filter((el) => {
-    if (arr.indexOf(el) !== arr.lastIndexOf(el)) {
-      if (result.indexOf(el) === -1) {
-        result.splice(result.indexOf(el), 1);
-        result.unshift(el);
-      }
+  let result = arr.filter(
+    (num, index) => {
+      return arr.indexOf(num) !== index;
     }
+
     // } // Використовуємо метод filter() для вибірки лише дубльованих елементів
     // // Перевіряємо, чи є індекс поточного елемента відмінним від індексу першого входження елемента, та повертаємо результат
     // // Повертаємо новий масив з дубльованими елементами
-  });
+  );
   return result;
 }
 console.log("Завдання: 16 ==============================");
